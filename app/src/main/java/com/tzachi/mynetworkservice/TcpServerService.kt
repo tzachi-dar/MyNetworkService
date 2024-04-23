@@ -48,6 +48,18 @@ public class TcpServerService : Service() {
                     //startActivity(intent);
                     context!!.sendBroadcast(intent)
 
+
+                    val intent1 = Intent(
+                        applicationContext,
+                        GlobalActionBarService::class.java
+                    )
+                    intent1.putExtra("data", "yourData")
+                    startService(intent1)
+
+
+
+
+
                     val t: Thread = TcpClientHandler(dataInputStream, dataOutputStream)
                     t.start()
                 } else {
